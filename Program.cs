@@ -6,11 +6,13 @@ namespace KESCHA
     {
         static void Main()
         {
-            Animal Kescha = new Animal(name: "Kescha", age: 5);
+            Animal Kescha = new Bird(name: "Kescha", age: 5);
+            Animal Kasee = new Pet(name: "Kasee", age: 3);
 
             Console.Write("Ismingzni kiriting: ");
             string userName = Console.ReadLine();
             Kescha.Greet(userName);
+            Kasee.Greet(userName);
 
             Console.Write("Yoshingizni kiriting: ");
             string ageAsString = Console.ReadLine();

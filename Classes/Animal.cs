@@ -1,6 +1,6 @@
 namespace KESCHA.Classes
 {
-    class Animal
+    public class Animal
     {
         public string Name { get; set; }
         public int Age { get; set; }
@@ -76,7 +76,7 @@ namespace KESCHA.Classes
             return userAge - animalAge;
         }
 
-        public void Greet(string userName)
+        public virtual void Greet(string userName)
         {
             if(userName == "")
             {
