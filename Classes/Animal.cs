@@ -1,34 +1,44 @@
 namespace KESCHA.Classes
 {
-    public class Animal
+    public abstract class Animal : IAnimal
     {
+        public abstract void Greet2(string userName);
         public string Name { get; set; }
-        public int Age { get; set; }
-        public int AgeDifference { get; set; }
+        protected int Age { get; set; }
+        internal int AgeDifference { get; set; }
+        private string Password { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
 
         public Animal()
         {
             Name = "No name";
             Age = 0;
             AgeDifference = 0;
+            Password = "23;";
+            CreatedDate = DateTimeOffset.Now;
         }
 
         public Animal(string name, int age)
         {
             Name = name;
             Age = age;
+            CreatedDate = DateTimeOffset.Now;
         }
 
-        public Animal(string name, int userAge, int animalAge)
+        public Animal(
+            string name, 
+            int userAge, 
+            int animalAge)
         {
             Name = name;
             Age = animalAge;
             CalculateAgeDifferenceWithNoReturn(userAge, animalAge);
+            CreatedDate = DateTimeOffset.Now;
         }
 
         public void PrintAgeDifference()
         {
-            Console.WriteLine($"Siz va {Name} o'rtasidagi yosh farqi: {AgeDifference}");
+            Console.WriteLine($"Age difference between you and {Name}: {AgeDifference}");
         }
 
         public void CompareAges(int userAge)
@@ -82,7 +92,7 @@ namespace KESCHA.Classes
             {
                 userName = "Unknown person";
             }
-            Console.WriteLine($"Salom, {userName}");
+            Console.WriteLine($"Hello, {userName}");
         }
 
         private void CalculateAgeDifferenceWithNoReturn(int userAge, int animalAge)
